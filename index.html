@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d18">
+  <meta name="description" content="PS2 Evolution: interfaz web experimental para emulación de PlayStation 2.">
+  <title>PS2 Evolution</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="PS2 Evolution inicio">
+        <span class="brand-mark">PS2</span>
+        <span><strong>EVOLUTION</strong><small>WEB EMULATOR PROJECT</small></span>
+      </a>
+      <span class="build-tag"><i></i> PROYECTO EN DESARROLLO</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">PLAYSTATION 2 · BROWSER PROJECT</div>
+        <h1>Tu colección.<br><span>Tu navegador.</span></h1>
+        <p class="intro">Una interfaz web para organizar y preparar tus propios juegos de PS2. El motor de emulación se integrará en una siguiente fase.</p>
+      </section>
+
+      <section class="console-panel">
+        <div class="panel-heading">
+          <div><span class="section-kicker">01 / BIBLIOTECA</span><h2>Selecciona un juego</h2></div>
+          <span class="format-label">ISO · CHD · ELF*</span>
+        </div>
+        <label class="drop-zone" id="dropZone" for="gameFile">
+          <span class="disc-icon">◉</span>
+          <strong>Arrastra tu archivo aquí</strong>
+          <span>o haz clic para buscarlo en tu dispositivo</span>
+          <small>El archivo se procesa localmente en esta página; no se sube a un servidor.</small>
+          <input id="gameFile" type="file" accept=".iso,.chd,.cso,.elf,.bin,.img">
+        </label>
+        <div class="selected-game" id="selectedGame" hidden>
+          <div class="file-symbol">▣</div>
+          <div class="file-info"><strong id="fileName">Juego seleccionado</strong><span id="fileSize"></span></div>
+          <button class="text-button" id="removeFile" type="button">Quitar</button>
+        </div>
+      </section>
+
+      <section class="status-panel">
+        <div class="status-title"><span class="section-kicker">02 / MOTOR</span><span class="status-pill">PENDIENTE</span></div>
+        <h2>Motor de emulación</h2>
+        <p>La interfaz está preparada, pero todavía no contiene un núcleo PS2 ejecutable. No mostrará juegos hasta integrar y probar un motor compatible con WebAssembly.</p>
+        <div class="engine-card">
+          <div class="engine-logo">▶</div>
+          <div><strong>Play! · PCSX2 WebAssembly</strong><span>Evaluación de motores de código abierto</span></div>
+          <span class="engine-state">POR INTEGRAR</span>
+        </div>
+        <button class="primary-button" id="bootButton" type="button" disabled>Motor todavía no disponible</button>
+        <p class="notice">*La compatibilidad real de formatos dependerá del motor integrado. No se incluyen BIOS ni juegos.</p>
+      </section>
+    </main>
+
+    <footer><span>PS2 EVOLUTION</span><span>Proyecto independiente · No afiliado a Sony</span></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
