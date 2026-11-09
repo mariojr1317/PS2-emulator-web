@@ -45,7 +45,7 @@ let currentPreset="low";
 function saveSettings(){
   const settings={preset:currentPreset,resolution:resolution.value,renderer:renderer.value,effects:effects.checked,vsync:vsync.checked};
   try{localStorage.setItem("ps2evolution-settings",JSON.stringify(settings));}catch(error){}
-  settingsStatus.textContent="Configuración guardada en este navegador · Perfil "+({low:"Bajo",balanced:"Equilibrado",high:"Alto"}[currentPreset])+".";
+  settingsStatus.textContent="Configuración guardada en este navegador · Perfil "+({low:"Bajo",balanced:"Equilibrado",high:"Alto",custom:"Personalizado"}[currentPreset])+".";
 }
 function applyPreset(preset){
   currentPreset=preset;
