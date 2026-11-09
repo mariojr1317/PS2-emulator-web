@@ -17,14 +17,12 @@
       </a>
       <span class="build-tag"><i></i> PROYECTO EN DESARROLLO</span>
     </header>
-
     <main>
       <section class="hero">
         <div class="eyebrow">PLAYSTATION 2 · BROWSER PROJECT</div>
         <h1>Tu colección.<br><span>Tu navegador.</span></h1>
-        <p class="intro">Una interfaz web para organizar y preparar tus propios juegos de PS2. El motor de emulación se integrará en una siguiente fase.</p>
+        <p class="intro">Una interfaz web experimental para preparar tus juegos de PS2 y ajustar el rendimiento. El perfil inicial prioriza Chromebooks; el motor de emulación todavía está por integrar.</p>
       </section>
-
       <section class="console-panel">
         <div class="panel-heading">
           <div><span class="section-kicker">01 / BIBLIOTECA</span><h2>Selecciona un juego</h2></div>
@@ -43,11 +41,50 @@
           <button class="text-button" id="removeFile" type="button">Quitar</button>
         </div>
       </section>
-
+      <section class="settings-panel">
+        <div class="panel-heading">
+          <div><span class="section-kicker">02 / RENDIMIENTO</span><h2>Configuración gráfica</h2></div>
+          <span class="default-label">POR DEFECTO: BAJO</span>
+        </div>
+        <p class="settings-intro">Elige entre priorizar fluidez o calidad. Puedes cambiar estos ajustes cuando quieras.</p>
+        <div class="preset-grid" role="group" aria-label="Perfil de rendimiento">
+          <button class="preset-card active" type="button" data-preset="low" aria-pressed="true">
+            <strong>Bajo</strong><span>Chromebook y equipos modestos</span><small>Resolución reducida · efectos mínimos</small>
+          </button>
+          <button class="preset-card" type="button" data-preset="balanced" aria-pressed="false">
+            <strong>Equilibrado</strong><span>Calidad y fluidez</span><small>Resolución media · mejoras moderadas</small>
+          </button>
+          <button class="preset-card" type="button" data-preset="high" aria-pressed="false">
+            <strong>Alto</strong><span>Equipos más potentes</span><small>Mayor resolución · efectos avanzados</small>
+          </button>
+        </div>
+        <div class="setting-row">
+          <label for="resolutionScale">Escala de resolución</label>
+          <select id="resolutionScale">
+            <option value="0.5">50% · Máxima fluidez</option>
+            <option value="0.75">75% · Chromebook</option>
+            <option value="1" selected>100% · Nativa</option>
+            <option value="1.5">150% · Alta</option>
+            <option value="2">200% · Muy alta</option>
+          </select>
+        </div>
+        <div class="setting-row">
+          <label for="renderer">Renderizador preferido</label>
+          <select id="renderer">
+            <option value="auto" selected>Automático (recomendado)</option>
+            <option value="webgl2">WebGL 2</option>
+            <option value="webgpu">WebGPU (si está disponible)</option>
+          </select>
+        </div>
+        <label class="toggle-row"><span><strong>Efectos gráficos</strong><small>Mejoras visuales que pueden reducir los FPS</small></span><input id="effects" type="checkbox"></label>
+        <label class="toggle-row"><span><strong>Sincronización vertical</strong><small>Puede reducir cortes de imagen</small></span><input id="vsync" type="checkbox" checked></label>
+        <p class="save-note" id="settingsStatus" role="status">Perfil Bajo guardado en este navegador.</p>
+        <p class="notice">Estos controles guardan tus preferencias, pero aún no modifican la ejecución de juegos: falta integrar el núcleo de emulación.</p>
+      </section>
       <section class="status-panel">
-        <div class="status-title"><span class="section-kicker">02 / MOTOR</span><span class="status-pill">PENDIENTE</span></div>
+        <div class="status-title"><span class="section-kicker">03 / MOTOR</span><span class="status-pill">PENDIENTE</span></div>
         <h2>Motor de emulación</h2>
-        <p>La interfaz está preparada, pero todavía no contiene un núcleo PS2 ejecutable. No mostrará juegos hasta integrar y probar un motor compatible con WebAssembly.</p>
+        <p>La interfaz todavía no contiene un núcleo PS2 ejecutable. No mostrará juegos hasta integrar y probar un motor compatible con WebAssembly.</p>
         <div class="engine-card">
           <div class="engine-logo">▶</div>
           <div><strong>Play! · PCSX2 WebAssembly</strong><span>Evaluación de motores de código abierto</span></div>
@@ -57,7 +94,6 @@
         <p class="notice">*La compatibilidad real de formatos dependerá del motor integrado. No se incluyen BIOS ni juegos.</p>
       </section>
     </main>
-
     <footer><span>PS2 EVOLUTION</span><span>Proyecto independiente · No afiliado a Sony</span></footer>
   </div>
   <script src="app.js"></script>
